@@ -1,0 +1,26 @@
+{
+  "name": "uptownOTP",
+  "version": "0.1",
+  "homepage": "https://github.com/tobiaswright/uptownOTP",
+  "authors": [
+    "Tobias Wright <tobias.wright@gmail.com>"
+  ],
+  "description": "Encrypt/Decrypt text using a simple filestream system",
+  "main": "crypt.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "filestream",
+    "one-time-pad",
+    "cryptosystem"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
