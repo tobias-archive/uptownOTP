@@ -1,7 +1,5 @@
-(function() {
+(function(window) {
 'use strict';
-
-	var crypt = {};
 
 	var str = 'abcdefghijklmnopqrstuvwxyz',
 		alphaArray = str.toUpperCase().split('');
@@ -124,11 +122,9 @@
 		return plainAsLetter.join('');
 	};
 
-	crypt = {
+	window.UT = {
 		encrpyt: encrpyt,
 		decrypt: decrypt
 	};
 
-	window.crypt = crypt;
-
-})();
+})(window);
