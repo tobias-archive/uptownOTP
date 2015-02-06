@@ -32,7 +32,7 @@
 		return plainAsNumber;
 	};
 
-	var encrpyt = function( message, key ) {
+	var encrypt = function( message, key ) {
 		var sums = [],
 			alpha = [],
 			count = 0,
@@ -123,7 +123,7 @@
 	};
 
 	window.UT = {
-		encrpyt: encrpyt,
+		encrypt: encrypt,
 		decrypt: decrypt
 	};
 
