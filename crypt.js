@@ -36,8 +36,8 @@
 		var numArray;
 
 		numArray = cleanString(str);
-		numArray = stringToArray(message);
-		numArray = letterArrayToNumberArray(message);
+		numArray = stringToArray(numArray);
+		numArray = letterArrayToNumberArray(numArray);
 
 		return numArray;
 
