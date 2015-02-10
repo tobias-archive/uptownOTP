@@ -5,19 +5,19 @@
 		alphaArray = str.toUpperCase().split('');
 
 	//cleans the incoming messages of spaces and special characters
-	var clean = function( message ) {
+	var cleanString = function( message ) {
 		message = message.replace(/\s+/g, '');
 		message = message.replace(/[^\w\s]/gi, '');
 		return message;
 	};
 
 	//changes a string to an array of letters
-	var toArray = function( str ) {
+	var stringToArray = function( str ) {
 		return str.toUpperCase().split('');
 	};
 
 	//translates an array of letters to numbers
-	var asNumber = function( array ) {
+	var letterArrayToNumberArray = function( array ) {
 
 		var plainAsNumber = [];
 
@@ -32,6 +32,17 @@
 		return plainAsNumber;
 	};
 
+	var stringToNumberArray = function ( str ) {
+		var numArray;
+
+		numArray = cleanString(str);
+		numArray = stringToArray(message);
+		numArray = letterArrayToNumberArray(message);
+
+		return numArray;
+
+	};
+
 	var encrypt = function( message, key ) {
 		var sums = [],
 			alpha = [],
@@ -40,14 +51,8 @@
 			numKey,
 			numMessage;
 
-		message = clean(message);
-		key = clean(key);
-
-		key = toArray(key);
-		message = toArray(message);
-
-		numKey = asNumber( key );
-		numMessage = asNumber( message );
+		message = stringToNumberArray(message);
+		key = stringToNumberArray(key);
 
 		//encrypts the original meassage, now all numbers, with the key
 		for (var m = 0; m < numMessage.length;m++) {
@@ -93,11 +98,10 @@
 
 		//remove spaces
 		message = message.replace( /\s/g, '');
-		message = asNumber( message );
 
-		key = clean(key);
-		key = toArray(key);
-		numKey = asNumber( key );
+		message = letterArrayToNumberArray( message );
+
+		numKey = stringToNumberArray( key );
 
 		//decrypts the message using the key
 		for (var m = 0; m < message.length;m++) {
