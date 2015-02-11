@@ -51,8 +51,8 @@
 			numKey,
 			numMessage;
 
-		message = stringToNumberArray(message);
-		key = stringToNumberArray(key);
+		numMessage = stringToNumberArray(message);
+		numKey = stringToNumberArray(key);
 
 		//encrypts the original meassage, now all numbers, with the key
 		for (var m = 0; m < numMessage.length;m++) {
