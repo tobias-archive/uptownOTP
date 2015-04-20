@@ -43,6 +43,44 @@
 
 	};
 
+	var addNum = function(array) {
+		var length = array.length;
+		var num = 0;
+		var letter;
+
+		if (length % 4 === 0) {
+			for (var i=0;i<5;i++) {
+				letter = Math.floor((Math.random() * 25) + 1);
+				array.push(letter);
+			}
+
+			array.push(0)
+		} else {
+
+			while ( length % 4 !== 0 ){
+				num++;
+				letter = Math.floor((Math.random() * 25) + 1);
+				array.push(letter);
+				length = array.length;
+			}
+
+			array.pop();
+			array.push(num-1);
+		}
+
+		return array
+	};
+
+	var removeNum = function( array ) {
+		var numToDelete = array.pop();
+
+		numToDelete = -1 * numToDelete;
+
+		array.splice(numToDelete);
+
+		return array
+	};
+
 	var encrypt = function( message, key ) {
 		var sums = [],
 			alpha = [],
@@ -53,6 +91,8 @@
 
 		numMessage = stringToNumberArray(message);
 		numKey = stringToNumberArray(key);
+
+		numMessage = addNum(numMessage);
 
 		//encrypts the original meassage, now all numbers, with the key
 		for (var m = 0; m < numMessage.length;m++) {
@@ -98,8 +138,8 @@
 
 		//remove spaces
 		message = message.replace( /\s/g, '');
-
 		message = letterArrayToNumberArray( message );
+		message = removeNum(message);
 
 		numKey = stringToNumberArray( key );
 
